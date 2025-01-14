@@ -1,7 +1,7 @@
 # 玩家控制
 
 ## 项目里程碑
-- [x] [替换人物模型](https://juejin.cn/post/7359084920596004902#heading-4)
+- [x] [替换人物模型](å)
 - [x] [添加人物动画](https://juejin.cn/post/7359084920596004902#heading-5)
 - [x] [加载场景模型](https://juejin.cn/post/7359084920596004902#heading-6)
 - [x] [添加音乐、音效](https://juejin.cn/post/7361688292352213019)
@@ -32,21 +32,28 @@
 ### 多人在线
 ![多人同屏](https://gitee.com/brother_shui/player-control/raw/game/screenshots/image-6.png)
 ## 项目搭建
-在base基础上添加以下内容
-- 添加 less 方便样式嵌套
+
+
+- 安装依赖
 
 ```shell
-  npm install less
+  npm install
 ```
 
-- 添加数据管理 zustand
+- 运行前端
 
 ```shell
-  npm install zustand
+  cd client
+
+  npm run dev
 ```
-- 添加socket.io-client用来做消息同步
+
+- 运行后端socket
+
 ```shell
-  npm install socket.io-client
-```
+  cd server
+
+  npm run dev
+
 
 
