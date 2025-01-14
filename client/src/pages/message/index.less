@@ -1,0 +1,52 @@
+.message {
+  width: 240px;
+  height: 300px;
+  position: fixed;
+  top: 0px;
+  border-radius: 6px;
+  padding: 10px 10px;
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+
+  background-color: rgba(255, 255, 255, 0.5);
+
+  .message-list {
+    flex: 1;
+    overflow-y: scroll;
+  }
+
+  .message-item {
+    display: flex;
+    margin-bottom: 10px;
+
+    .message-name {
+      width: 80px
+    }
+
+    .message-content {
+      word-wrap: break-word;
+      max-width: 140px;
+    }
+  }
+
+  .input-view {
+    display: flex;
+    align-items: center;
+
+    .input-dom {
+      flex: 1;
+      margin-right: 10px;
+      // border-radius: 6px;
+    }
+    .common-button{
+      cursor:pointer ;
+      font-weight: bold;
+    }
+    .disable-button{
+      cursor:not-allowed ;
+      color:#666666;
+      font-weight: bold;
+    }
+  }
+}
