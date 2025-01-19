@@ -1,7 +1,7 @@
 # 玩家控制
 
 ## 项目里程碑
-- [x] [替换人物模型](å)
+- [x] [替换人物模型](https://juejin.cn/post/7359084920596004902#heading-4)
 - [x] [添加人物动画](https://juejin.cn/post/7359084920596004902#heading-5)
 - [x] [加载场景模型](https://juejin.cn/post/7359084920596004902#heading-6)
 - [x] [添加音乐、音效](https://juejin.cn/post/7361688292352213019)
@@ -54,6 +54,9 @@
   cd server
 
   npm run dev
+
+
+
 
 
 

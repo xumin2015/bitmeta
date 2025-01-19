@@ -18,7 +18,7 @@ export default function Ambiance({ debug = false }) {
             <meshStandardMaterial transparent opacity={0.5} />
           </>
         )}
-        <PositionalAudio url={AUDIOS.beach} distance={30} autoplay loop />
+        {/* <PositionalAudio url={AUDIOS.beach} distance={30} autoplay loop /> */}
       </mesh>
       <mesh position={[42, -4, -15]}>
         {debug && (
@@ -27,7 +27,7 @@ export default function Ambiance({ debug = false }) {
             <meshStandardMaterial transparent opacity={0.5} />
           </>
         )}
-        <PositionalAudio url={AUDIOS.beach} distance={10} autoplay loop />
+        {/* <PositionalAudio url={AUDIOS.beach} distance={10} autoplay loop /> */}
       </mesh>
       <mesh position={[-25, 0, -120]}>
         {debug && (
@@ -36,7 +36,7 @@ export default function Ambiance({ debug = false }) {
             <meshStandardMaterial transparent opacity={0.5} />
           </>
         )}
-        <PositionalAudio url={AUDIOS.beach} distance={30} autoplay loop />
+        {/* <PositionalAudio url={AUDIOS.beach} distance={30} autoplay loop /> */}
       </mesh>
       {/* 森林鸟叫声 */}
       <mesh position={[0, 5, 3]}>
@@ -46,7 +46,7 @@ export default function Ambiance({ debug = false }) {
             <meshStandardMaterial transparent opacity={0.5} />
           </>
         )}
-        <PositionalAudio url={AUDIOS.forest} distance={2} autoplay loop />
+        {/* <PositionalAudio url={AUDIOS.forest} distance={2} autoplay loop /> */}
       </mesh>
     </group>
   );

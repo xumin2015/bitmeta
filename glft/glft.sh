@@ -1,0 +1,1 @@
+for /r %i in (*.fbx) do FBX2glTF -i %i -o %~ni.glb

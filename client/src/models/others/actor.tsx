@@ -27,17 +27,21 @@ const Actor = memo(({ id }: { id: string }) => {
   // 运动状态
   useEffect(() => {
     switch (status) {
+      
       case PLAYER_STATUS.run:
-        actions[names[1]]?.fadeOut(0.2);
-        actions[names[2]]?.reset().fadeIn(0.2).play();
+        // console.log('useEffect-status-run',names,actions[names[0]], actions[names[1]]);
+        actions[PLAYER_STATUS.idle]?.fadeOut(0.2);
+        actions[PLAYER_STATUS.run]?.reset().fadeIn(0.2).play();
         break;
       case PLAYER_STATUS.walk:
-        actions[names[1]]?.fadeOut(0.2);
-        actions[names[0]]?.reset().fadeIn(0.2).play();
+        console.log('useEffect-status-walk');
+        actions[PLAYER_STATUS.idle]?.fadeOut(0.2);
+        actions[PLAYER_STATUS.run]?.reset().fadeIn(0.2).play();
         break;
       default:
-        actions[names[2]]?.fadeOut(0.2);
-        actions[names[1]]?.reset().fadeIn(0.2).play();
+        console.log('useEffect-status-default');
+        actions[PLAYER_STATUS.run]?.fadeOut(0.2);
+        actions[PLAYER_STATUS.idle]?.reset().fadeIn(0.2).play();
         break;
     }
   }, [status]);

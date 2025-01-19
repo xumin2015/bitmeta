@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "axios": "^1.7.9"
+    "axios": "^1.7.9",
+    "fbx2gltf": "^0.9.7-p1"
   }
 }

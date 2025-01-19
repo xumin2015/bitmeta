@@ -7,6 +7,7 @@ import * as THREE from "three";
 
 import Lights from "./lights";
 import Floor from "./floor";
+import Park from "./park";
 import Player from "./player";
 import Ambiance from "./ambiance";
 import Ocean from "./ocean";
@@ -61,6 +62,7 @@ export default function Models() {
             <Player />
           </KeyboardControls>
           <Floor />
+          <Park />
           <Others />
         </Physics>
         {DEBUG && <Perf position="top-left" />}
