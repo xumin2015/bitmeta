@@ -28,7 +28,7 @@ export default function Park() {
         type="fixed"
         scale={2}
         colliders="trimesh"
-        position={[15, 4, -20]}
+        position={[15, 8, -20]}
       >
         <primitive size={[10, 10, 10]} object={park.scene} />
         {/* <primitive object={island.scene} /> */}
