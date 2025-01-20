@@ -26,7 +26,7 @@ export default function Park() {
       <RigidBody
         name="环境"
         type="fixed"
-        scale={2}
+        // scale={2}
         colliders="trimesh"
         position={[15, 8, -20]}
       >
