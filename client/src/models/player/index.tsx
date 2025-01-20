@@ -161,7 +161,7 @@ export default function Player() {
       camCollision={false} // 相机碰撞检测
       camMaxDis={DEBUG ? -1500 : -10} // 相机缩放的极限距离
       camZoomSpeed={DEBUG ? 10 : 4} // 相机缩放速度
-      maxVelLimit={5} // 人物移动速度
+      maxVelLimit={3} // 人物移动速度
       jumpVel={5} // 跳跃速度
       dragDampingC={0.5} // 运动阻力（摩檫力、空气阻力）系数
       name="player"
@@ -173,7 +173,7 @@ export default function Player() {
             ref={playRef}
             castShadow
             object={scene}
-            position={[aaa, -0.8, aaa]}
+            position={[aaa, -0.6, aaa]}
           />
         </Animation>
       </Suspense>
