@@ -13,7 +13,7 @@ export default function Loading() {
   const [isLoad, setLoad] = useState(false);
 
   const [name, setName] = useState();
-  const [selectedOption, setSelectedOption] = useState("men");
+  const [selectedOption, setSelectedOption] = useState("0");
 
   const update = useModels((state) => state.update);
 
@@ -51,6 +51,8 @@ export default function Loading() {
 
   const handleOptionChange = (event: any) => {
     setSelectedOption(event.target.value);
+    console.log('handleOptionChange',event.target.value)
+    sessionStorage.sex=event.target.value;
   };
 
   return (
@@ -79,8 +81,8 @@ export default function Loading() {
             <label>
               <input
                 type="radio"
-                value="men"
-                checked={selectedOption === "men"}
+                value="0"
+                checked={selectedOption === "0"}
                 onChange={handleOptionChange}
               />{" "}
               男生
@@ -88,8 +90,8 @@ export default function Loading() {
             <label>
               <input
                 type="radio"
-                value="women"
-                checked={selectedOption === "women"}
+                value="1"
+                checked={selectedOption === "1"}
                 onChange={handleOptionChange}
               />{" "}
               女生

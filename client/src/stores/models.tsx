@@ -30,5 +30,6 @@ type ModelsState = {
 
 export type DataMsg = {
   pos: THREE.Vector3;
+  sex:string
   // vel: THREE.Vector3;
 };

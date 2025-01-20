@@ -1,4 +1,12 @@
-export const PATH = "./models/character/people002.glb";
+export const PATH0 = "./models/character/people0.glb";
+export const PATH1 = "./models/character/people1.glb";
+
+export const PATH = "./models/character/people0.glb";
+
+export const SEXPATH = {
+  0:"./models/character/people0.glb",
+  1:"./models/character/people1.glb"
+}
 
 export const AUDIOS = {
   song: "/audios/song.mp3",

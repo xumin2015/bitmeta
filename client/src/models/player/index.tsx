@@ -6,15 +6,21 @@ import { Animation, AnimationSet } from "../animation";
 import { openShadow, socket, toFixed, generateUserId } from "@/utils";
 import { useFrame, useThree } from "@react-three/fiber";
 import { useModels } from "@/stores/models";
-import { AUDIOS, DEBUG, MULTI, PATH, SocketEvents } from "@/config";
+import { AUDIOS, DEBUG, MULTI, PATH0,PATH1,PATH, SocketEvents } from "@/config";
 import { RapierRigidBody } from "@react-three/rapier";
 
+// useGLTF.preload(PATH0);
+// useGLTF.preload(PATH1);
 useGLTF.preload(PATH);
 
 const baseFixedNum = 3;
 const lastPos = new THREE.Vector3();
 export default function Player() {
+
+  // const resultPath=sessionStorage.sex==1?PATH1:PATH0;
   const { scene, animations } = useGLTF(PATH);
+
+
   const playRef = useRef<THREE.Object3D | undefined>(null); // 玩家模型引用
   const rigidRef = useRef<RapierRigidBody>(null); //  玩家所在刚体
   const bgmRef = useRef<THREE.PositionalAudio>(null); // bgm音频
@@ -140,6 +146,7 @@ export default function Player() {
       id: userParams.userId,
       userName:userParams.userName,
       position: [toFixed(pos.x), toFixed(pos.y), toFixed(pos.z)],
+      sex:sessionStorage.sex
     };
 
     socket.emit(String(SocketEvents.MSG), [message]);
@@ -154,7 +161,7 @@ export default function Player() {
       animated
       followLight
       autoBalance={false}
-      position={[aaa, 12, aaa]}
+      position={[aaa, 20, aaa]}
       floatHeight={0.01}
       capsuleRadius={0.3}
       capsuleHalfHeight={0.5}

@@ -3,14 +3,19 @@ import { useFrame } from "@react-three/fiber";
 import { useAnimations, useGLTF } from "@react-three/drei";
 import { CapsuleCollider, RapierRigidBody, RigidBody, quat } from "@react-three/rapier";
 import { SkeletonUtils } from "three-stdlib";
-import { PATH, PLAYER_STATUS } from "@/config";
+import { PATH,PATH0, PATH1,PLAYER_STATUS } from "@/config";
 import { useModels } from "@/stores/models";
 import * as THREE from "three";
 
 useGLTF.preload(PATH);
 const Actor = memo(({ id }: { id: string }) => {
-  /*----------------------------变量命名------------------------------*/
-  // 加载模型
+
+
+  const players = useModels(state => state.players)
+  // const curPlayer = players.get(id);
+  // /*----------------------------变量命名------------------------------*/
+  // // 加载模型
+  // const resultPath=curPlayer?.sex=='1'?PATH1:PATH0;
   const { scene, animations } = useGLTF(PATH);
   // 克隆网格
   const clone = useMemo(() => SkeletonUtils.clone(scene), [scene]);
@@ -20,7 +25,7 @@ const Actor = memo(({ id }: { id: string }) => {
   const [status, setStatus] = useState(PLAYER_STATUS.idle); // 玩家状态
   const playerRef = useRef<RapierRigidBody>(null) //  玩家所在刚体
 
-  const players = useModels(state => state.players)
+
   const lastPos = useRef(new THREE.Vector3());
 
   /*----------------------------生命周期-------------------------------*/

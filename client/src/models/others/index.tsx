@@ -97,5 +97,6 @@ export default function Others() {
     });
   }
   console.log('players--222',players)
-  return [...players.keys()].map((vo) => <Actor key={vo} id={vo} />);
+  
+  return [...players.keys()].map((vo) => <Actor  key={vo} id={vo} />);
 }
