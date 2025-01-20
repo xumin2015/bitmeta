@@ -26,20 +26,23 @@ export default function Message() {
     };
   }, []);
 
+  useEffect(() => {
+    toBottom();
+  }, [document.getElementById("message-list")]);
+
   function handleKeyDown(event: KeyboardEvent) {
     if (event.key !== "Tab") return;
     event.stopPropagation();
     event.preventDefault();
   }
   // 按键监听
-   useEffect(() => {
+  useEffect(() => {
     // toBottom();
-    if(gameStart){
+    if (gameStart) {
       // alert('success')
-      socket&&initSocketMessage();
-
+      socket && initSocketMessage();
     }
-  }, [gameStart])
+  }, [gameStart]);
 
   // (window as any).initSocketMessage = initSocketMessage;
 
@@ -47,7 +50,7 @@ export default function Message() {
     axios.get(`${SOCKET_ADDRESS}/messageList`).then((res) => {
       console.log("haha", res);
       if (res.status == 200 && res.data) {
-        update({msgList:res.data})
+        update({ msgList: res.data });
         // setMsglist(res.data);
       }
     });
@@ -60,27 +63,26 @@ export default function Message() {
         axios.get(`${SOCKET_ADDRESS}/messageList`).then((res) => {
           console.log("haha", res);
           if (res.status == 200 && res.data) {
-            update({msgList:res.data})
-            setTimeout(()=>{toBottom();},500)
+            update({ msgList: res.data });
+            setTimeout(() => {
+              toBottom();
+            }, 500);
             // setMsglist(res.data);
           }
         });
-       
       }
     });
   }
 
   function setMsg(data: any) {
-   
     console.log("SocketEvents.MSG2", msgList, data);
     const curData: any = [...msgList, data];
     console.log("curData", curData);
-    update({msgList:curData})
+    update({ msgList: curData });
     // setMsglist(() => {
     //   // 在这里处理状态值的更新
     //   return curData; // 返回新的状态值
     // });
-    
   }
 
   // // 响应按键事件
@@ -121,8 +123,9 @@ export default function Message() {
 
     socket.emit(String(SocketEvents.MSG), [messageContent]);
     setMessage("");
-    setTimeout(()=>{toBottom();},500)
-    
+    setTimeout(() => {
+      toBottom();
+    }, 500);
   }
 
   function toBottom() {
@@ -149,11 +152,14 @@ export default function Message() {
         ))}
       </div>
       <div className="input-view">
-        <input
+        <textarea
           className="input-dom"
-          type="text"
+          // type="text"
+          rows={2}
           onChange={messagechange}
           value={message}
+          onKeyDown={(e) => e.key === "Enter" && postMessage()}
+          placeholder="发送你想说的话吧~"
         />
 
         {message && (

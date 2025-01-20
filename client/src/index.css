@@ -11,10 +11,10 @@ body,
   height: 100%;
   user-select: none;
   touch-action: none;
-  background: rgb(253, 228, 255);
+  /* background: rgb(253, 228, 255);
   background: linear-gradient(
     0deg,
     rgba(253, 228, 255, 1) 0%,
     rgba(124, 156, 254, 1) 100%
-  );
+  ); */
 }

@@ -13,6 +13,7 @@ export default function Loading() {
   const [isLoad, setLoad] = useState(false);
 
   const [name, setName] = useState();
+  const [selectedOption, setSelectedOption] = useState("men");
 
   const update = useModels((state) => state.update);
 
@@ -39,7 +40,7 @@ export default function Loading() {
     setShow(false);
     //  (window as any).initSocketEvent();
     setTimeout(() => {
-      update({ gameStart: true ,userName:name});
+      update({ gameStart: true, userName: name });
     }, 500);
   }
 
@@ -48,30 +49,69 @@ export default function Loading() {
     setName(event.target.value);
   }
 
+  const handleOptionChange = (event: any) => {
+    setSelectedOption(event.target.value);
+  };
+
   return (
     show && (
       <div className={`loading`}>
-        <div>{progress.toFixed()}%</div>
+        {/* <div>{progress.toFixed()}%</div>
         <div className="tubeBox">
           <div className="tube" style={{ width: `${progress}%` }}></div>
-        </div>
+        </div> */}
         <div>
           <input
             onChange={namechange}
             value={name}
             className="nameinput"
             type="text"
-            
           />
+          <div
+            style={{
+              marginTop: "10px",
+              display: "flex",
+              justifyContent: "space-between",
+              width: "200px",
+              textIndent: "20px",
+            }}
+          >
+            <label>
+              <input
+                type="radio"
+                value="men"
+                checked={selectedOption === "men"}
+                onChange={handleOptionChange}
+              />{" "}
+              男生
+            </label>
+            <label>
+              <input
+                type="radio"
+                value="women"
+                checked={selectedOption === "women"}
+                onChange={handleOptionChange}
+              />{" "}
+              女生
+            </label>
+          </div>
         </div>
 
         {name && (
           <div className="start" onClick={start}>
-            {isLoad ? "开始" : "loading..."}
+            {isLoad ? "开始" : "加载中..."}
           </div>
         )}
 
-        {!name && <div className="start disable">{isLoad ? "请输入昵称" : "loading..."}</div>}
+        {!name && (
+          <div className="start disable">
+            {isLoad ? "请输入您的昵称和性别" : "加载中..."}
+          </div>
+        )}
+        <div>{progress.toFixed()}%</div>
+        <div className="tubeBox">
+          <div className="tube" style={{ width: `${progress}%` }}></div>
+        </div>
       </div>
     )
   );
