@@ -3,7 +3,7 @@ import { useGLTF } from "@react-three/drei";
 import { RigidBody } from "@react-three/rapier";
 import { openShadow } from "@/utils";
 
-const PARK_PATH = "./models/park.glb";
+const PARK_PATH = "./models/scene1.glb";
 // const ISLAND_PATH = './models/island/SM_Islands_01.gltf'
 
 useGLTF.preload(PARK_PATH);
@@ -28,7 +28,7 @@ export default function Park() {
         type="fixed"
         scale={2}
         colliders="trimesh"
-        position={[15, 4, 10]}
+        position={[15, 4, -20]}
       >
         <primitive size={[10, 10, 10]} object={park.scene} />
         {/* <primitive object={island.scene} /> */}

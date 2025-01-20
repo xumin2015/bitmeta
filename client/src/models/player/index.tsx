@@ -126,14 +126,14 @@ export default function Player() {
     //@ts-ignore
 
     const userParams = { userId: "",userName:userName };
-    if (localStorage.userParams) {
-      const curParams = JSON.parse(localStorage.userParams);
+    if (sessionStorage.userParams) {
+      const curParams = JSON.parse(sessionStorage.userParams);
       if (curParams) userParams.userId = curParams.userId;
     } else {
       userParams.userId = generateUserId();
     }
     userParams.userName=userName;
-    localStorage.userParams = JSON.stringify(userParams);
+    sessionStorage.userParams = JSON.stringify(userParams);
 
     const message = {
       type: "position",
@@ -159,7 +159,7 @@ export default function Player() {
       capsuleRadius={0.3}
       capsuleHalfHeight={0.5}
       camCollision={false} // 相机碰撞检测
-      camMaxDis={DEBUG ? -1500 : -10} // 相机缩放的极限距离
+      camMaxDis={DEBUG ? -1500 : -100} // 相机缩放的极限距离
       camZoomSpeed={DEBUG ? 10 : 4} // 相机缩放速度
       maxVelLimit={3} // 人物移动速度
       jumpVel={5} // 跳跃速度
