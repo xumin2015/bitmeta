@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { AdaptiveDpr, KeyboardControls, Preload, Sky } from "@react-three/drei";
 import { Physics } from "@react-three/rapier";
@@ -15,6 +15,7 @@ import CloudLayer from "./cloudLayer";
 import { DEBUG } from "@/config";
 import Others from "./others";
 import { useModels } from "@/stores/models";
+import Concert from "./concert";
 
 // 按键映射
 const keyboardMap = [
@@ -32,7 +33,13 @@ const keyboardMap = [
 export default function Models() {
   // 游戏开始后启动物理引擎
   const gameStart = useModels((state) => state.gameStart);
+  const [startShowPlayer, setStartShowPlayer] = useState(false);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setStartShowPlayer(true);
+    }, 2000);
+  }, []);
   return (
     <Canvas
       style={{ width: "100%", height: "100%" }}
@@ -59,14 +66,15 @@ export default function Models() {
 
         <Physics debug={DEBUG} timeStep="vary" paused={!gameStart}>
           <KeyboardControls map={keyboardMap}>
-            <Player />
+            {startShowPlayer && <Player />}
           </KeyboardControls>
           <Floor />
           <Park />
+          <Concert />
           <Others />
         </Physics>
         {DEBUG && <Perf position="top-left" />}
-        <axesHelper args={[155]} />
+        {/* <axesHelper args={[155]} /> */}
       </Suspense>
       <Preload />
       <AdaptiveDpr pixelated />

@@ -9,7 +9,8 @@
   flex-direction: column;
   font-size: 12px;
 
-  background-color: rgba(255, 255, 255, 0.5);
+  // background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(92, 69, 59, 0.3);
 
   .message-list {
     flex: 1;
@@ -18,15 +19,30 @@
 
   .message-item {
     display: flex;
+    margin-right: 10px;
     margin-bottom: 10px;
+    font-size: 12px;
+    color: #fff;
 
     .message-name {
-      width: 80px
+      // width: 80px;
+      padding: 4px;
+      flex-shrink: 0;
+      // color: #a97b5f;
+      color: #fcd0b5;
+      
     }
 
     .message-content {
       word-wrap: break-word;
       max-width: 140px;
+      padding: 4px;
+      border-radius: 4px;
+      border: 1px solid #90aab3;
+      background-color:rgba(88,103,160,0.5);
+      // background-color:#0e2935;
+      // #5867a0
+      // #0e2935
     }
   }
 
@@ -36,11 +52,27 @@
 
     .input-dom {
       flex: 1;
+      margin-left: 8px;
       margin-right: 10px;
+      border: 0;
+      border-radius: 2px;
+      resize: none;
+      background-color: rgba(255,255,255,0.3);
+      color: #fff;
+      &:focus {
+        outline: none;
+        border: 0;
+      }
+      &::placeholder {
+        color: #fff;
+        // white-space: 2px;
+        // font-weight: bold;
+      }
       // border-radius: 6px;
     }
     .common-button{
       cursor:pointer ;
+      color: #fff;
       font-weight: bold;
     }
     .disable-button{
