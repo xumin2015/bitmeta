@@ -83,8 +83,16 @@ export default function Player() {
 
     const pos = rigidRef.current!.translation();
 
+    // if(pos.y<0){
+    //   pos.y=8;
+    //   const curPos = new THREE.Vector3(pos.x, pos.y, pos.z);
+    //   rigidRef.current!.setTranslation(curPos, true);
+    //   return;
+    // }
+
     if (pos.z == 0 && pos.x == 0) {
-      const curNumber = Math.random() * 8;
+      const curNumber = Math.random() * 6;
+      
       const curPos = new THREE.Vector3(curNumber, pos.y, curNumber);
       rigidRef.current!.setTranslation(curPos, true);
       return;
@@ -146,20 +154,20 @@ export default function Player() {
       animated
       followLight
       autoBalance={false}
-      position={[aaa, 8, aaa]}
+      position={[aaa, 12, aaa]}
       floatHeight={0.01}
       capsuleRadius={0.3}
       capsuleHalfHeight={0.5}
       camCollision={false} // 相机碰撞检测
       camMaxDis={DEBUG ? -1500 : -10} // 相机缩放的极限距离
       camZoomSpeed={DEBUG ? 10 : 4} // 相机缩放速度
-      maxVelLimit={DEBUG ? 5 : 3} // 人物移动速度
+      maxVelLimit={5} // 人物移动速度
       jumpVel={5} // 跳跃速度
       dragDampingC={0.5} // 运动阻力（摩檫力、空气阻力）系数
       name="player"
       ref={rigidRef}
     >
-      <Suspense fallback={<capsuleGeometry args={[0.3, 1]} />}>
+      <Suspense fallback={<capsuleGeometry args={[1, 1]} />}>
         <Animation animations={animations} animationSet={animationSet}>
           <primitive
             ref={playRef}

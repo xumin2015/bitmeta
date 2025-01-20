@@ -1,4 +1,6 @@
+
 import { Suspense, useEffect, useState } from "react";
+
 import { Canvas } from "@react-three/fiber";
 import { AdaptiveDpr, KeyboardControls, Preload, Sky } from "@react-three/drei";
 import { Physics } from "@react-three/rapier";
@@ -33,7 +35,9 @@ const keyboardMap = [
 export default function Models() {
   // 游戏开始后启动物理引擎
   const gameStart = useModels((state) => state.gameStart);
+
   const [startShowPlayer, setStartShowPlayer] = useState(false);
+
 
   useEffect(() => {
     setTimeout(() => {
@@ -64,15 +68,19 @@ export default function Models() {
         <Ocean range={500} />
         <CloudLayer />
 
-        <Physics debug={DEBUG} timeStep="vary" paused={!gameStart}>
-          <KeyboardControls map={keyboardMap}>
-            {startShowPlayer && <Player />}
-          </KeyboardControls>
+
+
+       <Physics debug={DEBUG} timeStep="vary" paused={!gameStart}>
+          
           <Floor />
           <Park />
           <Concert />
           <Others />
+          <KeyboardControls map={keyboardMap}>
+            <Player />
+          </KeyboardControls>
         </Physics>
+        
         {DEBUG && <Perf position="top-left" />}
         {/* <axesHelper args={[155]} /> */}
       </Suspense>

@@ -1,4 +1,4 @@
-export const PATH = "./models/character/untitled.glb";
+export const PATH = "./models/character/people002.glb";
 
 export const AUDIOS = {
   song: "/audios/song.mp3",
