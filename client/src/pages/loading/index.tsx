@@ -67,7 +67,7 @@ export default function Loading() {
             className="nameinput"
             type="text"
           />
-          <div
+          {/* <div
             style={{
               marginTop: "10px",
               display: "flex",
@@ -94,7 +94,7 @@ export default function Loading() {
               />{" "}
               女生
             </label>
-          </div>
+          </div> */}
         </div>
 
         {name && (
@@ -105,7 +105,7 @@ export default function Loading() {
 
         {!name && (
           <div className="start disable">
-            {isLoad ? "请输入您的昵称和性别" : "加载中..."}
+            {isLoad ? "请输入您的昵称" : "加载中..."}
           </div>
         )}
         <div>{progress.toFixed()}%</div>
