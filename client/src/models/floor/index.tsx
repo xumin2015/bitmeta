@@ -3,6 +3,7 @@ import { useGLTF } from "@react-three/drei";
 import { RigidBody } from "@react-three/rapier";
 import { openShadow } from "@/utils";
 
+
 const LAND_PATH = './models/land/SM_Landscape_MG01.gltf'
 const ISLAND_PATH = './models/island/SM_Islands_01.gltf'
 

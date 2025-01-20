@@ -84,7 +84,7 @@ export default function Player() {
     const pos = rigidRef.current!.translation();
 
     if (pos.z == 0 && pos.x == 0) {
-      const curNumber = Math.random() * 3;
+      const curNumber = Math.random() * 8;
       const curPos = new THREE.Vector3(curNumber, pos.y, curNumber);
       rigidRef.current!.setTranslation(curPos, true);
       return;
